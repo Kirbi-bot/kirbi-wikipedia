@@ -1,0 +1,18 @@
+{
+  "author": {
+      "name": "@naterchrdsn"
+  },
+  "dependencies": {
+        "wikijs": "^0.3.0"
+  },
+  "description": "adds the !wiki command to Kirbi",
+  "devDependencies": {},
+  "license": "Apache-2.0",
+  "name": "kirbi-wikipedia",
+  "optionalDependencies": {},
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Richardson-Media-House/kirbi-wikipedia.git"
+  },
+  "version": "0.0.1"
+}
