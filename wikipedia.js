@@ -25,7 +25,7 @@ exports.wiki = {
 						if (paragraph) {
 							cb({
 								embed: {
-									color: Kirbi.Config.defaultEmbedColor,
+									color: Kirbi.Config.discord.defaultEmbedColor,
 									title: page.title,
 									description: `${paragraph}\n\n${page.fullurl}`
 								}
