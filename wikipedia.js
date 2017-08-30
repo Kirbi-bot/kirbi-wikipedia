@@ -1,6 +1,6 @@
 const Wiki = require('wikijs').default;
 
-module.exports = function (config, auth) {
+module.exports = function (Kirbi) {
 	return {
 		commands: [
 			'wiki'
@@ -11,7 +11,7 @@ module.exports = function (config, auth) {
 			process: (msg, suffix, isEdit, cb) => {
 				var query = suffix;
 				if (!query) {
-					cb(`Usage: ${config.commandPrefix}wiki search terms`, msg);
+					cb(`Usage: ${Kirbi.Config.commandPrefix}wiki search terms`, msg);
 					return;
 				}
 		
@@ -24,7 +24,7 @@ module.exports = function (config, auth) {
 								if (paragraph) {
 									cb({
 										embed: {
-											color: config.discord.defaultEmbedColor,
+											color: Kirbi.Config.discord.defaultEmbedColor,
 											title: page.title,
 											description: `${paragraph}\n\n${page.fullurl}`
 										}
