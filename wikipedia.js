@@ -9,18 +9,18 @@ module.exports = function (Kirbi) {
 			usage: '<search terms>',
 			description: 'Returns the summary of the first matching search result from Wikipedia',
 			process: (msg, suffix, isEdit, cb) => {
-				var query = suffix;
+				const query = suffix;
 				if (!query) {
 					cb(`Usage: ${Kirbi.Config.commandPrefix}wiki search terms`, msg);
 					return;
 				}
-		
-				new Wiki().search(query, 1).then(function (data) {
-					new Wiki().page(data.results[0]).then(function (page) {
-						page.summary().then(function (summary) {
-							var sumText = summary.toString().split('\n');
-							var continuation = function () {
-								var paragraph = sumText.shift();
+
+				new Wiki().search(query, 1).then(data => {
+					new Wiki().page(data.results[0]).then(page => {
+						page.summary().then(summary => {
+							const sumText = summary.toString().split('\n');
+							const continuation = function () {
+								const paragraph = sumText.shift();
 								if (paragraph) {
 									cb({
 										embed: {
@@ -34,7 +34,7 @@ module.exports = function (Kirbi) {
 							continuation();
 						});
 					});
-				}, function (err) {
+				}, err => {
 					cb(err, msg);
 				});
 			}
