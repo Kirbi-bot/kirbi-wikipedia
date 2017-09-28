@@ -1,6 +1,6 @@
 const Wiki = require('wikijs').default;
 
-module.exports = function (Kirbi) {
+module.exports = Kirbi => {
 	return {
 		commands: [
 			'wiki'
